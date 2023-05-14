@@ -1,0 +1,97 @@
+﻿<Window x:Class="AppointFirstTryWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppointFirstTryWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600" Background="#eff">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="20" />
+    </WindowChrome.WindowChrome>
+    <!--Alternatively #06f-->
+        <Border BorderThickness="5" BorderBrush="#0078bb" >
+    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+        <!--*Title Apple window buttons and logo-->
+            <TextBlock Name="Title" Text="Afspraken Overzicht" FontWeight="ExtraBold" FontSize="20" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Grid.Row="0" Grid.Column="1" Height="50" Content="Logo" HorizontalAlignment="Right" 
+                   FontSize="14" VerticalContentAlignment="Center" Margin="0,0,10,0" Foreground="#0078BB"/>
+            <!--<Rectangle Height="2" Fill="#06f" VerticalAlignment="Bottom" Grid.ColumnSpan="2" />-->
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,0,0,0" >
+                <Button x:Name="Exit" Style="{StaticResource SystemButton}" Background="Red" Click="Exit_Click" />
+                <Button x:Name="MinimizeWindow" Style="{StaticResource SystemButton}" Background="Orange"  />
+                <Button x:Name="MaximizeWindow" Style="{StaticResource SystemButton}" Background="ForestGreen" />
+            </StackPanel>
+        <!--*Left column-->
+            <TextBlock Grid.Row="1" x:Name="DateTextBlock" Text="10 Mei 2023" FontWeight="Bold" FontSize="18"
+                       HorizontalAlignment="Center" Margin="0,0,0,0" />
+
+            <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0" >
+                <TextBlock Name="MorningTime1" Text="09:30" FontSize="16" Margin="10,5,0,0" />
+                <ComboBox Name="NineThirtyComboBox" Margin="10,0" SelectedIndex="1" >
+                    <ComboBoxItem Content="GEEN CLIENT" />
+                    <ComboBoxItem Content="Kees van Driel" />
+                    <ComboBoxItem Content="Anita Drooghoven" />
+                    <ComboBoxItem Content="Marcel de Hoogh" />
+                    <ComboBoxItem Content="Annelies Merckx" />
+                </ComboBox>
+                <TextBlock Name="MorningTime2" Text="11:15" FontSize="16" Margin="10,15,0,0" />
+                <ComboBox Name="ElevenFifteenComboBox" Margin="10,0" SelectedIndex="2" >
+                    <ComboBoxItem Content="GEEN CLIENT" />
+                    <ComboBoxItem Content="Kees van Driel" />
+                    <ComboBoxItem Content="Anita Drooghoven" />
+                    <ComboBoxItem Content="Marcel de Hoogh" />
+                    <ComboBoxItem Content="Annelies Merckx" />
+                </ComboBox>
+                <TextBlock Name="AfternoonTime1" Text="14:00" FontSize="16" Margin="10,15,0,0" />
+                <ComboBox Name="FourteenHundredComboBox" Margin="10,0" SelectedIndex="0" >
+                    <ComboBoxItem Content="GEEN CLIENT" />
+                    <ComboBoxItem Content="Kees van Driel" />
+                    <ComboBoxItem Content="Anita Drooghoven" />
+                    <ComboBoxItem Content="Marcel de Hoogh" />
+                    <ComboBoxItem Content="Annelies Merckx" />
+                </ComboBox>
+                <TextBlock Name="AfternoonTime2" Text="16:00" FontSize="16" Margin="10,15,0,0" />
+                <ComboBox Name="SixteenHundredComboBox" Margin="10,0" SelectedIndex="0" >
+                    <ComboBoxItem Content="GEEN CLIENT" />
+                    <ComboBoxItem Content="Kees van Driel" />
+                    <ComboBoxItem Content="Anita Drooghoven" />
+                    <ComboBoxItem Content="Marcel de Hoogh" />
+                    <ComboBoxItem Content="Annelies Merckx" />
+                </ComboBox>
+            </StackPanel>
+        <!--*Right column-->
+            <StackPanel Grid.Row="1" Grid.Column="1" >
+                <Calendar x:Name="AppointmentCalendar" />
+                <!--Placeholder values-->
+                <TextBlock Text="GEEN CLIENT vandaag:" FontWeight="Bold" Margin="0,20,0,0" HorizontalAlignment="Center" />
+                <TextBlock Text="2" HorizontalAlignment="Center" />
+                <TextBlock Text="GEEN CLIENT deze maand:" FontWeight="Bold" HorizontalAlignment="Center" />
+                <TextBlock Text="14" HorizontalAlignment="Center" />
+                <TextBlock Text="Inkomsten deze maand:" FontWeight="Bold" HorizontalAlignment="Center" />
+                <TextBlock Text="180 Euro" HorizontalAlignment="Center" />
+            </StackPanel>
+
+        <!--*Bottom row buttons-->
+            <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button x:Name="AddClient" Width="120" Height="30" Content="Client toevoegen" />
+                <Button x:Name="ListOfClients" Width="120" Height="30" Content="Clienten Overzicht" 
+                        Click="ListOfClients_Click" Margin="20,0,0,0" />
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button x:Name="Confirm" Width="120" Height="30" Content="Afsluiten" 
+                        Margin="0,0,0,0" Click="Confirm_Click" />
+            </StackPanel>
+    </Grid>
+        </Border>
+</Window>
