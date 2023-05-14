@@ -26,6 +26,7 @@ namespace AppointFirstTryWPF
         {
             InitializeComponent();
 
+            //Blackout Dates
             DateTime startDate = new DateTime(2023, 05, 01);
             DateTime endDate = new DateTime(2025, 12, 31);
 
@@ -64,19 +65,25 @@ namespace AppointFirstTryWPF
         {
             try
             {
-                if (AppointmentCalendar.SelectedDate.HasValue)
-                    DateTextBlock.Text = AppointmentCalendar.SelectedDate.Value.ToString("dd MMM yyyy");
+            if (AppointmentCalendar.SelectedDate.HasValue)
+                    CurrentDateTextBlock.Text = AppointmentCalendar.SelectedDate.Value.ToString("dd MMM yyyy");
             }
             catch (Exception ex)
             {
-                // Log the exception or display an error message
-                Debug.WriteLine(ex.ToString());
+                Debug.WriteLine(ex);
             }
+
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void AddClient_Click(object sender, RoutedEventArgs e)
+        {
+            ManualDataGrid manualDataGrid = new();
+            manualDataGrid.Show();
         }
     }
 }

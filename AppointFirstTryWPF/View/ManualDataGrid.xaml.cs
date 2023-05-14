@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppointFirstTryWPF.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Newtonsoft.Json;
-using AppointFirstTryWPF.Model;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -18,17 +18,19 @@ using System.Windows.Shapes;
 namespace AppointFirstTryWPF.View
 {
     /// <summary>
-    /// Interaction logic for ClientOverview.xaml
+    /// Interaction logic for ManualDataGrid.xaml
     /// </summary>
-    public partial class ClientOverview : Window
+    public partial class ManualDataGrid : Window
     {
         string filePath = @"C:\Users\rheye\source\repos\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Cliënten.json";
-
-        public ClientOverview(Window parentwindow)
+        public ManualDataGrid()
         {
-            Owner = parentwindow;
             InitializeComponent();
-            SearchBox.Focus();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
@@ -44,7 +46,7 @@ namespace AppointFirstTryWPF.View
             //start with blank
             ClientGridOverview.ItemsSource = null;
 
-            if ( clients != null )
+            if (clients != null)
             {
                 ClientGridOverview.ItemsSource = clients;
             }
@@ -54,7 +56,7 @@ namespace AppointFirstTryWPF.View
         {
             var data = (List<Client>)this.ClientGridOverview.ItemsSource;
 
-            var json = JsonConvert.SerializeObject(data,Formatting.Indented);
+            var json = JsonConvert.SerializeObject(data, Formatting.Indented);
 
             if (File.Exists(filePath))
                 File.Delete(filePath);
@@ -62,19 +64,14 @@ namespace AppointFirstTryWPF.View
             File.WriteAllText(filePath, json);
         }
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

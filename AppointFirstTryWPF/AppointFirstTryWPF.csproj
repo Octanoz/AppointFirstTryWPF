@@ -8,16 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Anne_logo.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Images\Anne_logo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="ViewModel\" />
   </ItemGroup>
 

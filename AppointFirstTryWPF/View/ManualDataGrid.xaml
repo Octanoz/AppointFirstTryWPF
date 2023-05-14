@@ -1,11 +1,11 @@
-﻿<Window x:Class="AppointFirstTryWPF.View.ClientOverview"
+﻿<Window x:Class="AppointFirstTryWPF.View.ManualDataGrid"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppointFirstTryWPF.View"
-        mc:Ignorable="d" WindowStartupLocation="CenterOwner"
-        Title="ClientOverview" Height="550" Width="1000">
+        mc:Ignorable="d"
+        Title="ManualDataGrid" Height="550" Width="1000">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="20" />
     </WindowChrome.WindowChrome>
@@ -35,7 +35,17 @@
 
             <Grid Grid.Row="1" Background="#eff" >
                 <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="980"
-                      AlternatingRowBackground="#eff" FontSize="14" Foreground="#03c" />
+                      AlternatingRowBackground="#eff" FontSize="14" Foreground="#03c"
+                          AutoGenerateColumns="False" >
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                        <DataGridTextColumn Header="Achternaam" Binding="{Binding LastName}" />
+                        <DataGridTextColumn Header="Voornaam" Binding="{Binding FirstName}" />
+                        <DataGridTextColumn Header="Consulten" Binding="{Binding Consults2023}" />
+                        <DataGridTextColumn Header="Geslacht" Binding="{Binding Gender}" />
+                        <DataGridCheckBoxColumn Header="Actief" Binding="{Binding IsActive}" />
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
 
             <!--Separation bar / Future content-->
@@ -45,7 +55,7 @@
             <Grid Grid.Row="3" Background="#eff">
                 <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
                     <Button x:Name="Load" Content="Data Laden" Width="120" Margin="5" Click="Load_Click" />
-                    <Button x:Name="Save" Content="Wijzigingen Opslaan" Width="120" Margin="5" Click="Save_Click" />
+                    <Button x:Name="Save" Content="Wijzigingen Opslaan" Width="120" Margin="25,5,25,5" Click="Save_Click" />
                     <Button x:Name="Close" Content="Sluiten" Width="120" Margin="5" Click="Close_Click" />
                 </StackPanel>
             </Grid>

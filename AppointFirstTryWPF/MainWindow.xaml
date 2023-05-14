@@ -33,7 +33,7 @@
                 <Button x:Name="MaximizeWindow" Style="{StaticResource SystemButton}" Background="ForestGreen" />
             </StackPanel>
         <!--*Left column-->
-            <TextBlock Grid.Row="1" x:Name="DateTextBlock" Text="10 Mei 2023" FontWeight="Bold" FontSize="18"
+            <TextBlock Grid.Row="1" x:Name="CurrentDateTextBlock" Text="10 Mei 2023" FontWeight="Bold" FontSize="18"
                        HorizontalAlignment="Center" Margin="0,0,0,0" />
 
             <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0" >
@@ -72,7 +72,7 @@
             </StackPanel>
         <!--*Right column-->
             <StackPanel Grid.Row="1" Grid.Column="1" >
-                <Calendar x:Name="AppointmentCalendar" />
+                <Calendar x:Name="AppointmentCalendar" SelectedDatesChanged="AppointmentCalendar_SelectedDatesChanged" />
                 <!--Placeholder values-->
                 <TextBlock Text="GEEN CLIENT vandaag:" FontWeight="Bold" Margin="0,20,0,0" HorizontalAlignment="Center" />
                 <TextBlock Text="2" HorizontalAlignment="Center" />
@@ -84,7 +84,7 @@
 
         <!--*Bottom row buttons-->
             <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Button x:Name="AddClient" Width="120" Height="30" Content="Client toevoegen" />
+                <Button x:Name="AddClient" Width="120" Height="30" Content="Client toevoegen" Click="AddClient_Click" />
                 <Button x:Name="ListOfClients" Width="120" Height="30" Content="Clienten Overzicht" 
                         Click="ListOfClients_Click" Margin="20,0,0,0" />
             </StackPanel>
