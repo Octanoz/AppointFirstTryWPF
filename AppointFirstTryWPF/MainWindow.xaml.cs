@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +28,11 @@ namespace AppointFirstTryWPF
         {
             InitializeComponent();
 
+            //Set culture to Dutch
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("nl-NL");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("nl-NL");
+
+            //Blackout Dates
             DateTime startDate = new DateTime(2023, 05, 01);
             DateTime endDate = new DateTime(2025, 12, 31);
 
@@ -51,7 +58,7 @@ namespace AppointFirstTryWPF
             Close();
         }
 
-        private void ListOfClients_Click(object sender, RoutedEventArgs e)
+        private void AddClient_Click(object sender, RoutedEventArgs e)
         {
             //After changing the modalwindow constructor to take an owner window you will need to specify that owner in the initialization. so that's why we added (this).
             ClientOverview clientOverview = new ClientOverview(this);
@@ -64,19 +71,25 @@ namespace AppointFirstTryWPF
         {
             try
             {
-                if (AppointmentCalendar.SelectedDate.HasValue)
-                    DateTextBlock.Text = AppointmentCalendar.SelectedDate.Value.ToString("dd MMM yyyy");
+            if (AppointmentCalendar.SelectedDate.HasValue)
+                    CurrentDateTextBlock.Text = AppointmentCalendar.SelectedDate.Value.ToString("d MMMM yyyy");
             }
             catch (Exception ex)
             {
-                // Log the exception or display an error message
-                Debug.WriteLine(ex.ToString());
+                Debug.WriteLine(ex);
             }
+
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void ListOfClients_Click(object sender, RoutedEventArgs e)
+        {
+            ManualDataGrid manualDataGrid = new();
+            manualDataGrid.Show();
         }
     }
 }

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppointFirstTryWPF"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="600" Background="#eff">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="20" />
@@ -33,8 +33,8 @@
                 <Button x:Name="MaximizeWindow" Style="{StaticResource SystemButton}" Background="ForestGreen" />
             </StackPanel>
         <!--*Left column-->
-            <TextBlock Grid.Row="1" x:Name="DateTextBlock" Text="10 Mei 2023" FontWeight="Bold" FontSize="18"
-                       HorizontalAlignment="Center" Margin="0,0,0,0" />
+            <TextBlock Grid.Row="1" x:Name="CurrentDateTextBlock" Text="10 Mei 2023" FontWeight="Bold" 
+                       FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,0" />
 
             <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0" >
                 <TextBlock Name="MorningTime1" Text="09:30" FontSize="16" Margin="10,5,0,0" />
@@ -72,7 +72,7 @@
             </StackPanel>
         <!--*Right column-->
             <StackPanel Grid.Row="1" Grid.Column="1" >
-                <Calendar x:Name="AppointmentCalendar" />
+                <Calendar x:Name="AppointmentCalendar" SelectedDatesChanged="AppointmentCalendar_SelectedDatesChanged" />
                 <!--Placeholder values-->
                 <TextBlock Text="GEEN CLIENT vandaag:" FontWeight="Bold" Margin="0,20,0,0" HorizontalAlignment="Center" />
                 <TextBlock Text="2" HorizontalAlignment="Center" />
@@ -84,9 +84,10 @@
 
         <!--*Bottom row buttons-->
             <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Button x:Name="AddClient" Width="120" Height="30" Content="Client toevoegen" />
-                <Button x:Name="ListOfClients" Width="120" Height="30" Content="Clienten Overzicht" 
-                        Click="ListOfClients_Click" Margin="20,0,0,0" />
+                <Button x:Name="ListOfClients" Width="120" Height="30" Content="Client Overzicht" 
+                        Click="ListOfClients_Click" />
+                <Button x:Name="AddClient" Width="120" Height="30" Content="Clienten Toevoegen" 
+                        Click="AddClient_Click" Margin="20,0,0,0" />
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
                 <Button x:Name="Confirm" Width="120" Height="30" Content="Afsluiten" 

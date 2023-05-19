@@ -9,10 +9,12 @@
     "Gender": 0,
     "BirthDate": "24/08/2000",
     "Zodiac": 3,
+    "ZodiacSymbol": "♋",
     "StreetAddress": "Wiggelroede 16",
     "PostalCode": "4832 GI",
     "Town": "Beugen",
-    "IsActive": "Actief",
+    "Active": 0,
+    "IsActive": true,
     "Archive": 0
   },
   {
@@ -25,10 +27,12 @@
     "Gender": 1,
     "BirthDate": "03/03/1986",
     "Zodiac": 8,
+    "ZodiacSymbol": "♐",
     "StreetAddress": "Afrikaplein 16",
     "PostalCode": "5738 OO",
     "Town": "Zalk",
-    "IsActive": "True",
+    "Active": 0,
+    "IsActive": true,
     "Archive": 0
   },
   {
@@ -41,10 +45,12 @@
     "Gender": 0,
     "BirthDate": "12/04/1991",
     "Zodiac": 5,
+    "ZodiacSymbol": "♍",
     "StreetAddress": "De Verontwaardiging 21",
     "PostalCode": "1132 PD",
     "Town": "Volendam",
-    "IsActive": "Actief",
+    "Active": 0,
+    "IsActive": true,
     "Archive": 0
   },
   {
@@ -52,15 +58,17 @@
     "FirstName": "Annelies",
     "LastName": "Merckx",
     "Email": "merkcxjenixvan@gmail.com",
-    "Mobile": "06-49357561",
+    "Mobile": "06-49357231",
     "Consults2023": "3",
     "Gender": 1,
     "BirthDate": "18/10/1999",
     "Zodiac": 11,
+    "ZodiacSymbol": "♓",
     "StreetAddress": "Ziekerstraat 28",
     "PostalCode": "3000",
     "Town": "Leuven",
-    "IsActive": "Niet Actief",
+    "Active": 1,
+    "IsActive": false,
     "Archive": 8
   }
 ]
