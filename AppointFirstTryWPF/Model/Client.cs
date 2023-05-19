@@ -1,9 +1,11 @@
 ﻿using AppointFirstTryWPF.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace AppointFirstTryWPF.Model
 {
@@ -19,10 +21,21 @@ namespace AppointFirstTryWPF.Model
         public Gender Gender { get; set; }
         public string BirthDate { get; set; }
         public ZodiacSigns Zodiac { get; set; }
+        public string ZodiacSymbol
+        {
+            get { return GetZodiacSymbol(Zodiac); }
+        }   
         public string StreetAddress { get; set; }
         public string PostalCode { get; set; }
         public string Town { get; set; }
-        public string IsActive { get; set; }
+        public Active Active { get; set; }
+        public bool IsActive
+        {
+            get
+            {
+                return Active == 0;
+            }
+        }
         public Archive Archive { get; set; }
     
     
@@ -41,6 +54,39 @@ namespace AppointFirstTryWPF.Model
             Waterman = 10,
             Vissen = 11
         }
+
+        private static string GetZodiacSymbol(ZodiacSigns sign)
+        {
+            switch (sign)
+            {
+                case ZodiacSigns.Ram:
+                    return "♈";
+                case ZodiacSigns.Stier: 
+                    return "♉";
+                case ZodiacSigns.Tweelingen: 
+                    return "♊";
+                case ZodiacSigns.Kreeft: 
+                    return "♋";
+                case ZodiacSigns.Leeuw: 
+                    return "♌";
+                case ZodiacSigns.Maagd: 
+                    return "♍";
+                case ZodiacSigns.Weegschaal: 
+                    return "♎";
+                case ZodiacSigns.Schorpioen: 
+                    return "♏";
+                case ZodiacSigns.Boogschutter:
+                    return "♐";
+                case ZodiacSigns.Steenbok: 
+                    return "♑";
+                case ZodiacSigns.Waterman: 
+                    return "♒";
+                case ZodiacSigns.Vissen: 
+                    return "♓";
+                default: 
+                    return string.Empty;
+            }
+        }
     }
 
         public enum Gender : int
@@ -49,9 +95,15 @@ namespace AppointFirstTryWPF.Model
             Vrouw = 1
         }
 
-        //Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces
+    public enum Active
+    {
+        Actief = 0,
+        Non_Actief = 1
+    }
 
-        public enum Archive : int
+    //Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces
+
+    public enum Archive : int
         {
             Geen = 0,
             Een,
@@ -71,15 +123,4 @@ namespace AppointFirstTryWPF.Model
             Vijftien
         }
     }
-    public static class ZodiacSignsExtensions
-    {
-        private static readonly string[] symbols = new string[]
-        {
-        "♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓"
-        };
 
-        public static string Symbol(this Client.ZodiacSigns sign)
-        {
-            return symbols[(int)sign];
-        }
-    }

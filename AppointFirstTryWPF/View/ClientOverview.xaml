@@ -35,7 +35,7 @@
 
             <Grid Grid.Row="1" Background="#eff" >
                 <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="980"
-                      AlternatingRowBackground="#eff" FontSize="14" Foreground="#03c" />
+                      AlternatingRowBackground="#eff" FontSize="14" Background="#eff" Foreground="#03c" />
             </Grid>
 
             <!--Separation bar / Future content-->

@@ -34,16 +34,50 @@
             </Grid>
 
             <Grid Grid.Row="1" Background="#eff" >
-                <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="980"
-                      AlternatingRowBackground="#eff" FontSize="14" Foreground="#03c"
-                          AutoGenerateColumns="False" >
+                <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="980" AlternatingRowBackground="#eff" 
+                          FontSize="16" Background="#eff" Foreground="#03c" AutoGenerateColumns="False" 
+                          SelectionMode="Single" SelectionUnit="Cell" IsReadOnly="True" >
                     <DataGrid.Columns >
                         <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
                         <DataGridTextColumn Header="Achternaam" Binding="{Binding LastName}" />
                         <DataGridTextColumn Header="Voornaam" Binding="{Binding FirstName}" />
-                        <DataGridTextColumn Header="Consulten" Binding="{Binding Consults2023}" />
+                        <DataGridTemplateColumn Header="Consulten" >
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate >
+                                    <TextBlock Text="{Binding Consults2023}" HorizontalAlignment="Center" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn Header="Geslacht" Binding="{Binding Gender}" />
-                        <DataGridCheckBoxColumn Header="Actief" Binding="{Binding IsActive}" />
+                        <DataGridTemplateColumn Header="Astro" >
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate >
+                                    <TextBlock Text="{Binding ZodiacSymbol}" HorizontalAlignment="Center" MaxWidth="20"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Actief">
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate >
+                                    <CheckBox IsChecked="{Binding IsActive, Mode=OneWay}" 
+                                              VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Adres" >
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <TextBlock Text="{Binding StreetAddress}" />
+                                        <TextBlock Text=", " />
+                                        <TextBlock Text="{Binding PostalCode}" />
+                                        <TextBlock Text=", " />
+                                        <TextBlock Text="{Binding Town}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Archiefdoos" Binding="{Binding Archive}" />
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
