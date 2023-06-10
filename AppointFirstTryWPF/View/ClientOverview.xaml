@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppointFirstTryWPF.View"
         mc:Ignorable="d" WindowStartupLocation="CenterOwner"
-        Title="ClientOverview" Height="550" Width="1000">
+        Title="ClientOverview" Height="550" Width="1200">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="20" />
     </WindowChrome.WindowChrome>
@@ -34,12 +34,12 @@
             </Grid>
 
             <Grid Grid.Row="1" Background="#eff" >
-                <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="980"
+                <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="1170"
                       AlternatingRowBackground="#eff" FontSize="14" Background="#eff" Foreground="#03c" />
             </Grid>
 
             <!--Separation bar / Future content-->
-            <Grid Grid.Row="2" Background="#06f" Width="980" ></Grid>
+            <Grid Grid.Row="2" Background="#06f" Width="1170" ></Grid>
 
             <!--*Load / Reload / Save buttons-->
             <Grid Grid.Row="3" Background="#eff">

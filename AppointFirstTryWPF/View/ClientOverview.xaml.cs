@@ -23,7 +23,8 @@ namespace AppointFirstTryWPF.View
     /// </summary>
     public partial class ClientOverview : Window
     {
-        string filePath = @"C:\Users\rheye\source\repos\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Cliënten.json";
+        private const string CLIENTDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Cliënten.json";
+        readonly string filePath = CLIENTDATABASE;
         ObservableCollection<Client> clients;
 
         public ClientOverview(Window parentwindow)
@@ -33,9 +34,50 @@ namespace AppointFirstTryWPF.View
             SearchBox.Focus();
             clients = new();
             ClientGridOverview.ItemsSource = clients;
+            LoadClients();
         }
 
+        #region Click Methods
         private void Load_Click(object sender, RoutedEventArgs e)
+        {
+            LoadClients();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            var json = JsonConvert.SerializeObject(clients.ToList(),Formatting.Indented);
+
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+
+            File.WriteAllText(filePath, json);
+        }
+
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        #endregion
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var searchBox = sender as TextBox;
+            if (searchBox is not null)
+            {
+                var filteredList = clients.Where(c => c.LastName.ToLower().Contains(searchBox.Text.ToLower()));
+                ClientGridOverview.ItemsSource = null;
+                ClientGridOverview.ItemsSource = filteredList;
+            }
+            else ClientGridOverview.ItemsSource = clients;
+        }
+
+        private void LoadClients()
         {
             if (!File.Exists(filePath))
             {
@@ -50,38 +92,13 @@ namespace AppointFirstTryWPF.View
 
             clients.Clear();
 
-            if ( clients != null )
+            if (clients is not null)
             {
                 foreach (var client in loadedClients)
                 {
                     clients.Add(client);
                 }
             }
-        }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            var json = JsonConvert.SerializeObject(clients.ToList(),Formatting.Indented);
-
-            if (File.Exists(filePath))
-                File.Delete(filePath);
-
-            File.WriteAllText(filePath, json);
-        }
-
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

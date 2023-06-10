@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppointFirstTryWPF.View"
         mc:Ignorable="d"
-        Title="ManualDataGrid" Height="550" Width="1000">
+        Title="ManualDataGrid" Height="550" Width="1200">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="20" />
     </WindowChrome.WindowChrome>
@@ -26,7 +26,7 @@
                     <Button x:Name="MaximizeWindow" Style="{StaticResource SystemButton}" Background="ForestGreen" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="35,0" HorizontalAlignment="Center" >
-                    <TextBlock Text="Filteren op achternaam"  FontSize="14" FontWeight="DemiBold" />
+                    <TextBlock Text="Filteren op achternaam:"  FontSize="14" FontWeight="DemiBold" />
                     <TextBox x:Name="SearchBox" Width="300" TextChanged="SearchBox_TextChanged" FontSize="14"  Margin="10,0,0,0" />
                 </StackPanel>
                 <Label Grid.Row="0" Grid.Column="0" Height="50" Content="Logo" HorizontalAlignment="Right" 
@@ -34,9 +34,14 @@
             </Grid>
 
             <Grid Grid.Row="1" Background="#eff" >
-                <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="980" AlternatingRowBackground="#eff" 
+                <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="1170" AlternatingRowBackground="#eff" 
                           FontSize="16" Background="#eff" Foreground="#03c" AutoGenerateColumns="False" 
                           SelectionMode="Single" SelectionUnit="Cell" IsReadOnly="True" >
+                    <DataGrid.ColumnHeaderStyle >
+                        <Style TargetType="DataGridColumnHeader" >
+                            <Setter Property="FontWeight" Value="DemiBold" />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
                     <DataGrid.Columns >
                         <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
                         <DataGridTextColumn Header="Achternaam" Binding="{Binding LastName}" />
@@ -48,7 +53,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Geslacht" Binding="{Binding Gender}" />
+                        <DataGridTextColumn Header="M/V" Binding="{Binding Gender}" />
                         <DataGridTemplateColumn Header="Astro" >
                             <DataGridTemplateColumn.CellTemplate >
                                 <DataTemplate >
@@ -77,19 +82,26 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Archiefdoos" Binding="{Binding Archive}" />
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
+                        <DataGridTextColumn Header="Telefoon" Binding="{Binding Mobile}" />
+                        <DataGridTemplateColumn Header="Archiefdoos" >
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate >
+                                    <TextBlock Text="{Binding Archive}" HorizontalAlignment="Center" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
 
             <!--Separation bar / Future content-->
-            <Grid Grid.Row="2" Background="#06f" Width="980" ></Grid>
+            <Grid Grid.Row="2" Background="#06f" Width="1170" ></Grid>
 
             <!--*Load / Reload / Save buttons-->
             <Grid Grid.Row="3" Background="#eff">
                 <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
-                    <Button x:Name="Load" Content="Data Laden" Width="120" Margin="5" Click="Load_Click" />
-                    <Button x:Name="Save" Content="Wijzigingen Opslaan" Width="120" Margin="25,5,25,5" Click="Save_Click" />
+                    <Button x:Name="Load" Content="Data Laden" Width="120" Margin="5,5,130,5" Click="Load_Click" />
                     <Button x:Name="Close" Content="Sluiten" Width="120" Margin="5" Click="Close_Click" />
                 </StackPanel>
             </Grid>

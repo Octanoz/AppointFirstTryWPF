@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,18 +23,20 @@ namespace AppointFirstTryWPF.View
     /// </summary>
     public partial class ManualDataGrid : Window
     {
-        string filePath = @"C:\Users\rheye\source\repos\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Cliënten.json";
+        private const string CLIENTDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Cliënten.json";
+        readonly string filePath = CLIENTDATABASE;
+        ObservableCollection<Client> clients;
+
         public ManualDataGrid()
         {
             InitializeComponent();
+            SearchBox.Focus();
+            clients = new();
+            ClientGridOverview.ItemsSource = clients;
+            LoadClients();
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void Load_Click(object sender, RoutedEventArgs e)
+        private void LoadClients()
         {
             if (!File.Exists(filePath))
             {
@@ -46,10 +49,20 @@ namespace AppointFirstTryWPF.View
             //start with blank
             ClientGridOverview.ItemsSource = null;
 
-            if (clients != null)
+            if (clients is not null)
             {
                 ClientGridOverview.ItemsSource = clients;
             }
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Load_Click(object sender, RoutedEventArgs e)
+        {
+            LoadClients();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -71,7 +84,7 @@ namespace AppointFirstTryWPF.View
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            // Method intentionally left empty.
         }
     }
 }

@@ -28,10 +28,6 @@ namespace AppointFirstTryWPF
         {
             InitializeComponent();
 
-            //Set culture to Dutch
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("nl-NL");
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("nl-NL");
-
             //Blackout Dates
             DateTime startDate = new DateTime(2023, 05, 01);
             DateTime endDate = new DateTime(2025, 12, 31);
@@ -78,7 +74,6 @@ namespace AppointFirstTryWPF
             {
                 Debug.WriteLine(ex);
             }
-
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
