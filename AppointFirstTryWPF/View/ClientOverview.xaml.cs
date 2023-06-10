@@ -31,7 +31,6 @@ namespace AppointFirstTryWPF.View
         {
             Owner = parentwindow;
             InitializeComponent();
-            SearchBox.Focus();
             clients = new();
             ClientGridOverview.ItemsSource = clients;
             LoadClients();
@@ -64,18 +63,6 @@ namespace AppointFirstTryWPF.View
             Close();
         }
         #endregion
-
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var searchBox = sender as TextBox;
-            if (searchBox is not null)
-            {
-                var filteredList = clients.Where(c => c.LastName.ToLower().Contains(searchBox.Text.ToLower()));
-                ClientGridOverview.ItemsSource = null;
-                ClientGridOverview.ItemsSource = filteredList;
-            }
-            else ClientGridOverview.ItemsSource = clients;
-        }
 
         private void LoadClients()
         {
