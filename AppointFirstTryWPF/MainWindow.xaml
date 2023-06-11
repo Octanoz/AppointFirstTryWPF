@@ -40,36 +40,20 @@
 
             <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0" >
                 <TextBlock Name="MorningTime1" Text="09:30" FontSize="16" Margin="10,5,0,0" />
-                <ComboBox Name="NineThirtyComboBox" Margin="10,0" SelectedIndex="1" >
-                    <ComboBoxItem Content="GEEN CLIENT" />
-                    <ComboBoxItem Content="Kees van Driel" />
-                    <ComboBoxItem Content="Anita Drooghoven" />
-                    <ComboBoxItem Content="Marcel de Hoogh" />
-                    <ComboBoxItem Content="Annelies Merckx" />
+                <ComboBox Name="NineThirtyComboBox" Margin="10,0" SelectedIndex="1"
+                          ItemsSource="{Binding Path=clientFullNames}" >
                 </ComboBox>
                 <TextBlock Name="MorningTime2" Text="11:15" FontSize="16" Margin="10,15,0,0" />
-                <ComboBox Name="ElevenFifteenComboBox" Margin="10,0" SelectedIndex="2" >
-                    <ComboBoxItem Content="GEEN CLIENT" />
-                    <ComboBoxItem Content="Kees van Driel" />
-                    <ComboBoxItem Content="Anita Drooghoven" />
-                    <ComboBoxItem Content="Marcel de Hoogh" />
-                    <ComboBoxItem Content="Annelies Merckx" />
+                <ComboBox Name="ElevenFifteenComboBox" Margin="10,0" SelectedIndex="2"
+                          ItemsSource="{Binding Path=clientFullNames}" >
                 </ComboBox>
                 <TextBlock Name="AfternoonTime1" Text="14:00" FontSize="16" Margin="10,15,0,0" />
-                <ComboBox Name="FourteenHundredComboBox" Margin="10,0" SelectedIndex="0" >
-                    <ComboBoxItem Content="GEEN CLIENT" />
-                    <ComboBoxItem Content="Kees van Driel" />
-                    <ComboBoxItem Content="Anita Drooghoven" />
-                    <ComboBoxItem Content="Marcel de Hoogh" />
-                    <ComboBoxItem Content="Annelies Merckx" />
+                <ComboBox Name="FourteenHundredComboBox" Margin="10,0" SelectedIndex="0"
+                          ItemsSource="{Binding Path=clientFullNames}" >
                 </ComboBox>
                 <TextBlock Name="AfternoonTime2" Text="16:00" FontSize="16" Margin="10,15,0,0" />
-                <ComboBox Name="SixteenHundredComboBox" Margin="10,0" SelectedIndex="0" >
-                    <ComboBoxItem Content="GEEN CLIENT" />
-                    <ComboBoxItem Content="Kees van Driel" />
-                    <ComboBoxItem Content="Anita Drooghoven" />
-                    <ComboBoxItem Content="Marcel de Hoogh" />
-                    <ComboBoxItem Content="Annelies Merckx" />
+                <ComboBox Name="SixteenHundredComboBox" Margin="10,0" SelectedIndex="0"
+                          ItemsSource="{Binding Path=clientFullNames}" >
                 </ComboBox>
             </StackPanel>
         <!--*Right column-->
@@ -88,12 +72,10 @@
             <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" >
                 <Button x:Name="ListOfClients" Width="120" Height="30" Content="Client Overzicht" 
                         Click="ListOfClients_Click" />
-                <Button x:Name="AddClient" Width="120" Height="30" Content="Clienten Toevoegen" 
-                        Click="AddClient_Click" Margin="20,0,0,0" />
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
                 <Button x:Name="Confirm" Width="120" Height="30" Content="Afsluiten" 
-                        Margin="0,0,0,0" Click="Confirm_Click" />
+                        Margin="0,0,0,0" Click="Exit_Click" />
             </StackPanel>
     </Grid>
         </Border>

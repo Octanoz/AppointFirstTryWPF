@@ -23,8 +23,6 @@ namespace AppointFirstTryWPF.View
     /// </summary>
     public partial class ManualDataGrid : Window
     {
-        private const string CLIENTDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Cliënten.json";
-        readonly string filePath = CLIENTDATABASE;
         ObservableCollection<Client> clients;
 
         public ManualDataGrid()
@@ -38,20 +36,15 @@ namespace AppointFirstTryWPF.View
 
         private void LoadClients()
         {
-            if (!File.Exists(filePath))
+            var loadedClients = DataHandler.GetClients();
+            clients.Clear();
+
+            if (loadedClients is not null)
             {
-                Console.WriteLine($"{filePath} niet gevonden.");
-            }
-
-            var json = File.ReadAllText(filePath);
-            List<Client>? clients = JsonConvert.DeserializeObject<List<Client>>(json);
-
-            //start with blank
-            ClientGridOverview.ItemsSource = null;
-
-            if (clients is not null)
-            {
-                ClientGridOverview.ItemsSource = clients;
+                foreach (var client in loadedClients)
+                {
+                    clients.Add(client);
+                }
             }
         }
 
@@ -65,18 +58,6 @@ namespace AppointFirstTryWPF.View
             LoadClients();
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            var data = (List<Client>)this.ClientGridOverview.ItemsSource;
-
-            var json = JsonConvert.SerializeObject(data, Formatting.Indented);
-
-            if (File.Exists(filePath))
-                File.Delete(filePath);
-
-            File.WriteAllText(filePath, json);
-        }
-
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -85,6 +66,15 @@ namespace AppointFirstTryWPF.View
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Method intentionally left empty.
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            //After changing the modalwindow constructor to take an owner window you will need to specify that owner in the initialization. so that's why we added (this).
+            ClientOverview clientOverview = new ClientOverview(this);
+            Opacity = 0.6;
+            clientOverview.ShowDialog();
+            Opacity = 1;
         }
     }
 }

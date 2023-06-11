@@ -1,6 +1,8 @@
-﻿using AppointFirstTryWPF.View;
+﻿using AppointFirstTryWPF.Model;
+using AppointFirstTryWPF.View;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
@@ -24,9 +26,18 @@ namespace AppointFirstTryWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<Client> clients { get; set; }
+        public List<string> clientFullNames { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+
+            clients = new ObservableCollection<Client>(DataHandler.GetClients());
+
+            clientFullNames = new List<string> { "GEEN CLIENT" };
+            clientFullNames.AddRange(clients.Select(c => $"{ c.FirstName} { c.LastName}"));
 
             //Blackout Dates
             DateTime startDate = new DateTime(2023, 05, 01);
@@ -49,20 +60,6 @@ namespace AppointFirstTryWPF
             }
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void AddClient_Click(object sender, RoutedEventArgs e)
-        {
-            //After changing the modalwindow constructor to take an owner window you will need to specify that owner in the initialization. so that's why we added (this).
-            ClientOverview clientOverview = new ClientOverview(this);
-            Opacity = 0.6;
-            clientOverview.ShowDialog();
-            Opacity = 1;
-        }
-
         private void AppointmentCalendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -75,16 +72,15 @@ namespace AppointFirstTryWPF
                 Debug.WriteLine(ex);
             }
         }
-
-        private void Confirm_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         private void ListOfClients_Click(object sender, RoutedEventArgs e)
         {
             ManualDataGrid manualDataGrid = new();
             manualDataGrid.Show();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

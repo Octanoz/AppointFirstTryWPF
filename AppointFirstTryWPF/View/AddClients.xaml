@@ -1,0 +1,50 @@
+﻿<Window x:Class="AppointFirstTryWPF.View.AddClients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppointFirstTryWPF.View"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner"
+        Title="AddClients" Height="550" Width="1200">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="20" />
+    </WindowChrome.WindowChrome>
+    <Border BorderThickness="5" BorderBrush="#06f" >
+        <Grid>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+
+            <!--*Filter bar and Apple window buttons and logo-->
+            <Grid Background="#eff">
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,0,0,0" >
+                    <Button x:Name="Exit" Style="{StaticResource SystemButton}" Background="Red" Click="Exit_Click" />
+                    <Button x:Name="MinimizeWindow" Style="{StaticResource SystemButton}" Background="Orange"  />
+                    <Button x:Name="MaximizeWindow" Style="{StaticResource SystemButton}" Background="ForestGreen" />
+                </StackPanel>
+                <Label Grid.Row="0" Grid.Column="0" Height="50" Content="Logo" HorizontalAlignment="Right" 
+                   FontSize="14" VerticalContentAlignment="Center" Margin="0,0,10,0" Foreground="#0078BB"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Background="#eff" >
+                <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="1170"
+                      AlternatingRowBackground="#eff" FontSize="14" Background="#eff" Foreground="#03c" />
+            </Grid>
+
+            <!--Separation bar / Future content-->
+            <Grid Grid.Row="2" Background="#06f" Width="1170" ></Grid>
+
+            <!--*Load / Reload / Save buttons-->
+            <Grid Grid.Row="3" Background="#eff">
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <Button x:Name="Load" Content="Data Laden" Width="120" Margin="5" Click="Load_Click" />
+                    <Button x:Name="Save" Content="Wijzigingen Opslaan" Width="120" Margin="5" Click="Save_Click" />
+                    <Button x:Name="Close" Content="Sluiten" Width="120" Margin="5" Click="Close_Click" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
