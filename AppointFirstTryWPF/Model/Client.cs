@@ -119,6 +119,18 @@ namespace AppointFirstTryWPF.Model
                     return string.Empty;
             }
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Client client &&
+                   FirstName == client.FirstName &&
+                   LastName == client.LastName;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(FirstName, LastName);
+        }
     }
 
     #region Enums

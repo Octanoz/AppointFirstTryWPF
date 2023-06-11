@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace AppointFirstTryWPF.View
 {
     /// <summary>
-    /// Interaction logic for ConsultsWindow.xaml
+    /// Interaction logic for InvoicesWindow.xaml
     /// </summary>
-    public partial class ConsultsWindow : Window
+    public partial class InvoicesWindow : Window
     {
-        public ConsultsWindow()
+        public InvoicesWindow()
         {
             InitializeComponent();
         }

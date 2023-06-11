@@ -1,0 +1,29 @@
+Anne's logo					[Client Naam]
+Anne's gegevens					[Client Adres]
+
+Behandelcode 24501.
+
+Factuur nr. [Factuurnummer],
+
+Cuijk, [Vandaag].
+
+
+Betreft analytische- en hypnotherapeutische behandeling.
+
+
+[ConsultDatum1]		consult			[PrijsConsult1]
+
+[ConsultDatum2]		   "			[PrijsConsult2]
+
+[ConsultDatum3]		   "			[PrijsConsult3]
+
+[ConsultDatum4]		   "			[PrijsConsult4]
+
+[ConsultDatum5]		   "			[PrijsConsult5]
+
+
+
+string templatePath = @"C:\Templates\MyTemplate.dotx";
+string templateText = File.ReadAllText(templatePath);
+templateText = templateText.Replace("[TemplateText]", "Hello World!");
+File.WriteAllText(templatePath, templateText);

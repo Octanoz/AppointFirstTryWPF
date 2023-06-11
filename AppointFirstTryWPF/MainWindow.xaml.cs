@@ -78,9 +78,16 @@ namespace AppointFirstTryWPF
             manualDataGrid.Show();
         }
 
+        private void Invoices_Click(object sender, RoutedEventArgs e)
+        {
+            InvoicesWindow invoicesWindow = new InvoicesWindow();
+            invoicesWindow.Show();
+        }
+
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
     }
 }
