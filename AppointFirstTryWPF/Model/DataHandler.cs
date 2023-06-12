@@ -11,17 +11,21 @@ namespace AppointFirstTryWPF.Model
     internal class DataHandler
     {
         private const string CLIENTDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Cliënten.json";
-        readonly static string filePath = CLIENTDATABASE;
+        readonly static string clientFilePath = CLIENTDATABASE;
         static List<Client> clients;
+
+        private const string INVOICEDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Rekeningen.JSON";
+        readonly static string invoiceFilePath = INVOICEDATABASE;
+        static List<Invoice> invoices;
 
         public static List<Client> GetClients()
         {
-            if (!File.Exists(filePath))
+            if (!File.Exists(clientFilePath))
             {
-                Console.WriteLine($"{filePath} not found.");
+                Console.WriteLine($"{clientFilePath} not found.");
             }
 
-            var json = File.ReadAllText(filePath);
+            var json = File.ReadAllText(clientFilePath);
             return JsonConvert.DeserializeObject<List<Client>>(json);
         }
 
@@ -29,10 +33,32 @@ namespace AppointFirstTryWPF.Model
         {
             var json = JsonConvert.SerializeObject(clients, Formatting.Indented);
 
-            if (File.Exists(filePath))
-                File.Delete(filePath);
+            if (File.Exists(clientFilePath))
+                File.Delete(clientFilePath);
 
-            File.WriteAllText(filePath, json);
+            File.WriteAllText(clientFilePath, json);
         }
+
+        public static List<Invoice> GetInvoices()
+        {
+            if (!File.Exists (invoiceFilePath))
+            {
+                Console.WriteLine($"{invoiceFilePath} not found.");
+            }
+
+            var json = File.ReadAllText(invoiceFilePath);
+            return JsonConvert.DeserializeObject<List<Invoice>>(json);
+        }
+
+        public static void SaveInvoices(List<Invoice> invoices)
+        {
+            var json = JsonConvert.SerializeObject(invoices, Formatting.Indented);
+
+            if (File.Exists(invoiceFilePath))
+                File.Delete(invoiceFilePath);
+
+            File.WriteAllText (invoiceFilePath, json);
+        }
+
     }
 }

@@ -57,6 +57,11 @@
                             <Setter Property="FontWeight" Value="DemiBold" />
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="Nummer" Binding="{Binding Invoice_Number}" />
+                        <DataGridTextColumn Header="Datum" Binding="{Binding Invoice_Date}" />
+                        <DataGridTextColumn Header="Bedrag" Binding="{Binding Amount}" />
+                    </DataGrid.Columns>
                 </DataGrid>
             </Grid>
 

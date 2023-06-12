@@ -8,9 +8,9 @@ namespace AppointFirstTryWPF.Model
 {
     public class Invoice
     {
-        public int invoice_number { get; set; }
-        public string invoice_date { get; set; }
-        public decimal amount { get; set; }
-        public int client_id { get; set; }
+        public int Invoice_Number { get; set; }
+        public string Invoice_Date { get; set; }
+        public decimal Amount { get; set; }
+        public int Client_Id { get; set; }
     }
 }
