@@ -36,8 +36,8 @@ namespace AppointFirstTryWPF.View
 
         private void LoadClients()
         {
-            var loadedClients = DataHandler.GetClients();
             clients.Clear();
+            var loadedClients = DataHandler.GetClients();
 
             if (loadedClients is not null)
             {

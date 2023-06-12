@@ -5,8 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppointFirstTryWPF.View"
         mc:Ignorable="d"
-        Title="InvoicesWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="InvoicesWindow" Height="450" Width="600" Background="#bfc">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="20" />
+    </WindowChrome.WindowChrome>
+    <!--Alternatively #06f-->
+    <Border BorderThickness="5" BorderBrush="#0078bb" >
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="60"/>
+                <RowDefinition />
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <!--*Title Apple window buttons and logo-->
+            <TextBlock Name="Title" Text="Rekeningen Overzicht" FontWeight="ExtraBold" FontSize="20" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Grid.Row="0" Grid.Column="1" Height="50" Content="Logo" HorizontalAlignment="Right" 
+                   FontSize="14" VerticalContentAlignment="Center" Margin="0,0,10,0" Foreground="#0078BB"/>
+            <!--<Rectangle Height="2" Fill="#06f" VerticalAlignment="Bottom" Grid.ColumnSpan="2" />-->
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,0,0,0" >
+                <Button x:Name="Exit" Style="{StaticResource SystemButton}" Background="Red" Click="Exit_Click" />
+                <Button x:Name="MinimizeWindow" Style="{StaticResource SystemButton}" Background="Orange"  />
+                <Button x:Name="MaximizeWindow" Style="{StaticResource SystemButton}" Background="ForestGreen" />
+            </StackPanel>
+
+            <!--*Left column-->
+            <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0" >
+                <TextBlock Name="ClientName" Text="Cliënt" FontSize="16" Margin="10,5,0,0" />
+                <ComboBox Name="ClientNameComboBox" Margin="10,0" ItemsSource="{Binding Path=clientFullNames}" 
+                          SelectionChanged="ClientNameComboBox_SelectionChanged" />
+                <Label Content="Straat" FontSize="12" Margin="10,10,0,0" />
+                <TextBlock x:Name="StreetAddressTextBlock" Text="Straat" FontSize="16" Margin="30,0,0,0" />
+                <Label Content="Postcode" FontSize="12" Margin="10,10,0,0" />
+                <TextBlock x:Name="PostalCodeTextBlock" Text="Postcode" FontSize="16" Margin="30,0,0,0" />
+                <Label Content="Plaats" FontSize="12" Margin="10,10,0,0" />
+                <TextBlock x:Name="TownTextBlock" Text="Plaats" FontSize="16" Margin="30,0,0,0" />
+            </StackPanel>
+
+
+            <!--*Bottom row buttons-->
+            <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button x:Name="Invoices" Width="120" Height="30" Content="Rekeningen" 
+                        Margin="0,0,30,0" />
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="Confirm" Width="120" Height="30" Content="Afsluiten" 
+                        Margin="0,0,0,0" Click="Exit_Click" />
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>

@@ -42,7 +42,7 @@
                 <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
                     <Button x:Name="Load" Content="Data Laden" Width="120" Margin="5" Click="Load_Click" />
                     <Button x:Name="Save" Content="Wijzigingen Opslaan" Width="120" Margin="5" Click="Save_Click" />
-                    <Button x:Name="Close" Content="Sluiten" Width="120" Margin="5" Click="Close_Click" />
+                    <Button x:Name="Close" Content="Sluiten" Width="120" Margin="5" Click="Exit_Click" />
                 </StackPanel>
             </Grid>
         </Grid>

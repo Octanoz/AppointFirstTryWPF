@@ -75,7 +75,8 @@
                 <Button x:Name="Consults" Width="120" Height="30" Content="Consulten" Margin="30,0,0,0" />
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Button x:Name="Invoices" Width="120" Height="30" Content="Rekeningen" Margin="0,0,30,0" />
+                <Button x:Name="Invoices" Width="120" Height="30" Content="Rekeningen" 
+                        Margin="0,0,30,0" Click="Invoices_Click" />
                 <Button x:Name="Confirm" Width="120" Height="30" Content="Afsluiten" 
                         Margin="0,0,0,0" Click="Exit_Click" />
             </StackPanel>

@@ -16,10 +16,13 @@ namespace AppointFirstTryWPF.Model
 
         public static List<Client> GetClients()
         {
-            if (clients == null)
-                LoadClients();
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine($"{filePath} not found.");
+            }
 
-            return clients;
+            var json = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<List<Client>>(json);
         }
 
         public static void SaveClients(List<Client> clients)
@@ -30,17 +33,6 @@ namespace AppointFirstTryWPF.Model
                 File.Delete(filePath);
 
             File.WriteAllText(filePath, json);
-        }
-
-        private static void LoadClients()
-        {
-            if (!File.Exists(filePath))
-            {
-                Console.WriteLine($"{filePath} not found.");
-            }
-
-            var json = File.ReadAllText(filePath);
-            clients = JsonConvert.DeserializeObject<List<Client>>(json);
         }
     }
 }
