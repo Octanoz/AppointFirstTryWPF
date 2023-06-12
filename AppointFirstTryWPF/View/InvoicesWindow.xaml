@@ -46,6 +46,11 @@
                 <Label Content="Plaats" FontSize="12" Margin="10,10,0,0" />
                 <TextBlock x:Name="TownTextBlock" Text="Plaats" FontSize="16" Margin="30,0,0,0" />
             </StackPanel>
+            
+            <!--Right column-->
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" >
+                
+            </StackPanel>
 
 
             <!--*Bottom row buttons-->

@@ -104,7 +104,7 @@
                     <Button x:Name="Load" Content="Data Laden" Width="120" Margin="0,5,0,5" Click="Load_Click" />
                     <Button x:Name="Edit" Content="Data Aanpassen" Width="120" Margin="20,5,20,5" 
                             Click="Edit_Click" />
-                    <Button x:Name="Close" Content="Sluiten" Width="120" Margin="0,5,0,5" Click="Close_Click" />
+                    <Button x:Name="Close" Content="Sluiten" Width="120" Margin="0,5,0,5" Click="Exit_Click" />
                 </StackPanel>
             </Grid>
         </Grid>

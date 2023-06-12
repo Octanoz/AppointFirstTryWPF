@@ -34,6 +34,31 @@ namespace AppointFirstTryWPF.View
             LoadClients();
         }
 
+        #region Click methods
+        private void Load_Click(object sender, RoutedEventArgs e)
+        {
+            LoadClients();
+        }
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            //After changing the modalwindow constructor to take an owner window you will need to specify that owner in the initialization. so that's why we added (this).
+            ClientOverview clientOverview = new ClientOverview(this);
+            Opacity = 0.6;
+            clientOverview.ShowDialog();
+            Opacity = 1;
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        #endregion
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Method intentionally left empty.
+        }
+
         private void LoadClients()
         {
             clients.Clear();
@@ -46,35 +71,6 @@ namespace AppointFirstTryWPF.View
                     clients.Add(client);
                 }
             }
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void Load_Click(object sender, RoutedEventArgs e)
-        {
-            LoadClients();
-        }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Method intentionally left empty.
-        }
-
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            //After changing the modalwindow constructor to take an owner window you will need to specify that owner in the initialization. so that's why we added (this).
-            ClientOverview clientOverview = new ClientOverview(this);
-            Opacity = 0.6;
-            clientOverview.ShowDialog();
-            Opacity = 1;
         }
     }
 }
