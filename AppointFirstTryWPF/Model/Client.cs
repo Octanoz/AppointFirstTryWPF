@@ -17,7 +17,6 @@ namespace AppointFirstTryWPF.Model
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Mobile { get; set; }
-        public string Consults2023 { get; set; }
         public Gender Gender { get; set; }
         public string BirthDate { get; set; }
         public ZodiacSigns Zodiac { get; set; }
