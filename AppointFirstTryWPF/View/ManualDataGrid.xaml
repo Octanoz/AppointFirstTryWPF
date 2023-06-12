@@ -51,15 +51,8 @@
                                     <StackPanel Orientation="Horizontal" >
                                         <TextBlock Text="{Binding FirstName}" />
                                         <TextBlock Text=" " />
-                                        <TextBlock Text="{Binding LastName} " />
+                                        <TextBlock Text="{Binding LastName}" />
                                     </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Consulten" >
-                            <DataGridTemplateColumn.CellTemplate >
-                                <DataTemplate >
-                                    <TextBlock Text="{Binding Consults2023}" HorizontalAlignment="Center" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

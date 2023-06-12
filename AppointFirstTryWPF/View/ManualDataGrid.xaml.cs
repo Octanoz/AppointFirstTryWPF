@@ -56,7 +56,14 @@ namespace AppointFirstTryWPF.View
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Method intentionally left empty.
+            var searchBox = sender as TextBox;
+            if (searchBox is not null)
+            {
+                var filteredList = clients.Where(c => c.LastName.ToLower().Contains(searchBox.Text.ToLower()));
+                ClientGridOverview.ItemsSource = null;
+                ClientGridOverview.ItemsSource = filteredList;
+            }
+            else ClientGridOverview.ItemsSource = clients;
         }
 
         private void LoadClients()
