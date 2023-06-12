@@ -49,7 +49,15 @@
             
             <!--Right column-->
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" >
-                
+                <DataGrid x:Name="InvoiceGridOverview" Visibility="Visible" Width="250"
+                          AlternatingRowBackground="#eff" FontSize="16" Background="#eff"
+                          Foreground="#03c" AutoGenerateColumns="False" IsReadOnly="True" >
+                    <DataGrid.ColumnHeaderStyle >
+                        <Style TargetType="DataGridColumnHeader" >
+                            <Setter Property="FontWeight" Value="DemiBold" />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                </DataGrid>
             </StackPanel>
 
 

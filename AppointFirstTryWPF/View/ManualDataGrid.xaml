@@ -34,9 +34,10 @@
             </Grid>
 
             <Grid Grid.Row="1" Background="#eff" >
-                <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="1170" AlternatingRowBackground="#eff" 
-                          FontSize="16" Background="#eff" Foreground="#03c" AutoGenerateColumns="False" 
-                          SelectionMode="Single" SelectionUnit="Cell" IsReadOnly="True" >
+                <DataGrid x:Name="ClientGridOverview" Visibility="Visible" Width="1170" 
+                          AlternatingRowBackground="#eff" FontSize="16" Background="#eff" 
+                          Foreground="#03c" AutoGenerateColumns="False" SelectionMode="Single" 
+                          SelectionUnit="Cell" IsReadOnly="True" >
                     <DataGrid.ColumnHeaderStyle >
                         <Style TargetType="DataGridColumnHeader" >
                             <Setter Property="FontWeight" Value="DemiBold" />
@@ -44,8 +45,17 @@
                     </DataGrid.ColumnHeaderStyle>
                     <DataGrid.Columns >
                         <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
-                        <DataGridTextColumn Header="Achternaam" Binding="{Binding LastName}" />
-                        <DataGridTextColumn Header="Voornaam" Binding="{Binding FirstName}" />
+                        <DataGridTemplateColumn Header="Naam">
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate >
+                                    <StackPanel Orientation="Horizontal" >
+                                        <TextBlock Text="{Binding FirstName}" />
+                                        <TextBlock Text=" " />
+                                        <TextBlock Text="{Binding LastName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTemplateColumn Header="Consulten" >
                             <DataGridTemplateColumn.CellTemplate >
                                 <DataTemplate >
