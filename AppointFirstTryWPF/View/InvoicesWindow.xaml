@@ -50,19 +50,10 @@
             <!--Right column-->
             <StackPanel Grid.Row="1" Grid.Column="1" >
                 <StackPanel Orientation="Horizontal" Margin="5,5,0,0" >
-                <ComboBox x:Name="MonthComboBox" Width="100" HorizontalContentAlignment="Center" 
-                          Margin="30,0,20,5" >
-                    <ComboBoxItem Content="Mei" />
-                    <ComboBoxItem Content="Juni" />
-                    <ComboBoxItem Content="Juli" />
-                    <ComboBoxItem Content="December" />
-                </ComboBox>
+                    <ComboBox x:Name="MonthComboBox" Width="100" HorizontalContentAlignment="Center" 
+                              Margin="30,0,20,5" />
                     <ComboBox x:Name="YearComboBox" Width="100" HorizontalContentAlignment="Center" 
-                              Margin="0,0,0,5" >
-                        <ComboBoxItem Content="2022" />
-                        <ComboBoxItem Content="2023" />
-                        <ComboBoxItem Content="2024" />
-                    </ComboBox>
+                              Margin="0,0,0,5" />
                 </StackPanel>
                 <StackPanel Margin="0,5,0,10" >
                     <Button x:Name="FilterButton" Width="100" Height="27" Content="Filteren" />
@@ -83,11 +74,11 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,15,0,5" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,15,0,0" >
                     <Label Content="Aantal rekeningen" FontSize="12" Margin="0,0,0,0" />
                     <Label Content="Totaalbedrag" FontSize="12" Margin="10,0,0,0" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,5,0,5" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,0,0,5" >
                     <TextBlock x:Name="NumberOfInvoicesTextBlock" Height="20" Text="10" 
                                FontSize="16" Margin="20,0,50,0" />
                     <TextBlock Name="EuroSign" Text="€" VerticalAlignment="Center" Margin="20,0,5,0" />

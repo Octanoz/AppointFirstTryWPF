@@ -26,6 +26,8 @@ namespace AppointFirstTryWPF.View
         public ObservableCollection<Invoice> invoices { get; set; }
         public List<Invoice> invoiceData { get; set; }
 
+        //public IEnumerable<Month> Months => Enum.GetValues(typeof(Month)).Cast<Month>();
+
         public InvoicesWindow()
         {
             InitializeComponent();
@@ -36,6 +38,9 @@ namespace AppointFirstTryWPF.View
 
             clientFullNames = clients.Select(c => $"{c.FirstName} {c.LastName}").ToList();
             clientFullNames.Insert(0, "Kies een client");
+
+            MonthComboBox.ItemsSource = Enum.GetValues(typeof (Month)).Cast<Month>();
+            YearComboBox.ItemsSource = Enum.GetValues(typeof(Year)).Cast<Year>().Select(y => (int)y);
         }        
 
         private void ClientNameComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -52,6 +57,8 @@ namespace AppointFirstTryWPF.View
                     PostalCodeTextBlock.Text = selectedClient.PostalCode;
                     TownTextBlock.Text = selectedClient.Town;
                     InvoiceGridOverview.ItemsSource = invoiceData;
+                    NumberOfInvoicesTextBlock.Text = invoiceData.Count.ToString();
+                    TotalAmountTextBlock.Text = invoiceData.Sum(i => i.Amount).ToString();
                 }
                 else
                 {
@@ -59,6 +66,8 @@ namespace AppointFirstTryWPF.View
                     PostalCodeTextBlock.Text= string.Empty;
                     TownTextBlock.Text= string.Empty;
                     InvoiceGridOverview.ItemsSource = invoices;
+                    NumberOfInvoicesTextBlock.Text= invoices.Count.ToString();
+                    TotalAmountTextBlock.Text = invoices.Sum(i => i.Amount).ToString();
                 }
             }
         }
@@ -70,14 +79,15 @@ namespace AppointFirstTryWPF.View
 
         public enum Month
         {
-            January = 1,
-            February,
-            March,
+            Maand = 0,
+            Januari = 1,
+            Februari,
+            Maart,
             April,
-            May,
-            June,
-            July,
-            August,
+            Mei,
+            Juni,
+            Juli,
+            Augustus,
             September,
             October,
             November,
