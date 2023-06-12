@@ -48,7 +48,7 @@
             </StackPanel>
             
             <!--Right column-->
-            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" >
+            <Grid Grid.Row="1" Grid.Column="1" Height="200" VerticalAlignment="Top" >
                 <DataGrid x:Name="InvoiceGridOverview" Visibility="Visible" Width="250"
                           AlternatingRowBackground="#eff" FontSize="16" Background="#eff"
                           Foreground="#03c" AutoGenerateColumns="False" IsReadOnly="True" >
@@ -58,8 +58,7 @@
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
                 </DataGrid>
-            </StackPanel>
-
+            </Grid>
 
             <!--*Bottom row buttons-->
             <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" >

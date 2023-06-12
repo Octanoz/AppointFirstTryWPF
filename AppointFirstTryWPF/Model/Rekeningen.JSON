@@ -1,0 +1,50 @@
+[
+  {
+    "invoice_number": 5000,
+    "invoice_date": "31/01/2023",
+    "amount": 180.00,
+    "client_id": 1
+  },
+  {
+    "invoice_number": 5001,
+    "invoice_date": "31/01/2023",
+    "amount": 270.00,
+    "client_id": 2
+  },
+  {
+    "invoice_number": 5002,
+    "invoice_date": "31/01/2023",
+    "amount": 90.00,
+    "client_id": 3
+  },
+  {
+    "invoice_number": 5003,
+    "invoice_date": "31/01/2023",
+    "amount": 360.00,
+    "client_id": 4
+  },
+  {
+    "invoice_number": 5004,
+    "invoice_date": "28/02/2023",
+    "amount": 360.00,
+    "client_id": 1
+  },
+  {
+    "invoice_number": 5005,
+    "invoice_date": "28/02/2023",
+    "amount": 360.00,
+    "client_id": 2
+  },
+  {
+    "invoice_number": 5006,
+    "invoice_date": "28/02/2023",
+    "amount": 270.00,
+    "client_id": 3
+  },
+  {
+    "invoice_number": 5007,
+    "invoice_date": "28/02/2023",
+    "amount": 180.00,
+    "client_id": 4
+  }
+]

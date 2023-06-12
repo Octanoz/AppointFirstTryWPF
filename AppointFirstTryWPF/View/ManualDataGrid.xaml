@@ -51,7 +51,7 @@
                                     <StackPanel Orientation="Horizontal" >
                                         <TextBlock Text="{Binding FirstName}" />
                                         <TextBlock Text=" " />
-                                        <TextBlock Text="{Binding LastName}" />
+                                        <TextBlock Text="{Binding LastName} " />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

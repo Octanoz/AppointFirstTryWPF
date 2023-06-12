@@ -13,17 +13,13 @@ Betreft analytische- en hypnotherapeutische behandeling.
 
 [ConsultDatum1]		consult			[PrijsConsult1]
 
-[ConsultDatum2]		   "			[PrijsConsult2]
+[ConsultDatum2]		[idem2]			[PrijsConsult2]
 
-[ConsultDatum3]		   "			[PrijsConsult3]
+[ConsultDatum3]		[idem3]			[PrijsConsult3]
 
-[ConsultDatum4]		   "			[PrijsConsult4]
+[ConsultDatum4]		[idem4]			[PrijsConsult4]
 
-[ConsultDatum5]		   "			[PrijsConsult5]
+[ConsultDatum5]		[idem5]			[PrijsConsult5]
 
 
-
-string templatePath = @"C:\Templates\MyTemplate.dotx";
-string templateText = File.ReadAllText(templatePath);
-templateText = templateText.Replace("[TemplateText]", "Hello World!");
-File.WriteAllText(templatePath, templateText);
+Voetnoot
