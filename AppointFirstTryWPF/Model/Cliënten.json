@@ -1,6 +1,6 @@
 [
   {
-    "Id": "1",
+    "Id": 1,
     "FirstName": "Kees",
     "LastName": "van Driel",
     "Email": "ceesmeteenk@gmail.com",
@@ -17,7 +17,7 @@
     "Archive": 0
   },
   {
-    "Id": "2",
+    "Id": 2,
     "FirstName": "Anita",
     "LastName": "Drooghoven",
     "Email": "zodroog@yahoo.com",
@@ -34,7 +34,7 @@
     "Archive": 0
   },
   {
-    "Id": "3",
+    "Id": 3,
     "FirstName": "Marcel",
     "LastName": "de Hoogh",
     "Email": "hooghe@outlook.com",
@@ -51,7 +51,7 @@
     "Archive": 0
   },
   {
-    "Id": "4",
+    "Id": 4,
     "FirstName": "Annelies",
     "LastName": "Merckx",
     "Email": "merckxjenixvan@gmail.com",
@@ -68,7 +68,7 @@
     "Archive": 8
   },
   {
-    "Id": "5",
+    "Id": 5,
     "FirstName": "Jan-Hilco",
     "LastName": "van den Berg",
     "Email": "Jahallo@outlook.com",

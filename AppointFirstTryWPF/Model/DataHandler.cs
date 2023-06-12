@@ -10,6 +10,7 @@ namespace AppointFirstTryWPF.Model
 {
     internal class DataHandler
     {
+        #region Filepaths
         private const string CLIENTDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Cliënten.json";
         readonly static string clientFilePath = CLIENTDATABASE;
         static List<Client> clients;
@@ -17,7 +18,9 @@ namespace AppointFirstTryWPF.Model
         private const string INVOICEDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Rekeningen.JSON";
         readonly static string invoiceFilePath = INVOICEDATABASE;
         static List<Invoice> invoices;
+        #endregion
 
+        #region ClientList methods
         public static List<Client> GetClients()
         {
             if (!File.Exists(clientFilePath))
@@ -38,7 +41,9 @@ namespace AppointFirstTryWPF.Model
 
             File.WriteAllText(clientFilePath, json);
         }
+        #endregion
 
+        #region InvoiceList methods
         public static List<Invoice> GetInvoices()
         {
             if (!File.Exists (invoiceFilePath))
@@ -59,6 +64,6 @@ namespace AppointFirstTryWPF.Model
 
             File.WriteAllText (invoiceFilePath, json);
         }
-
+        #endregion
     }
 }

@@ -37,7 +37,7 @@
             <!--*Left column-->
             <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0" >
                 <TextBlock Name="ClientName" Text="Cliënt" FontSize="16" Margin="10,5,0,0" />
-                <ComboBox Name="ClientNameComboBox" Margin="10,0" ItemsSource="{Binding Path=clientFullNames}" 
+                <ComboBox Name="ClientNameComboBox" Margin="10,0" ItemsSource="{Binding clientFullNames}"
                           SelectionChanged="ClientNameComboBox_SelectionChanged" />
                 <Label Content="Straat" FontSize="12" Margin="10,10,0,0" />
                 <TextBlock x:Name="StreetAddressTextBlock" Text="Straat" FontSize="16" Margin="30,0,0,0" />
@@ -48,22 +48,53 @@
             </StackPanel>
             
             <!--Right column-->
-            <Grid Grid.Row="1" Grid.Column="1" Height="200" VerticalAlignment="Top" >
-                <DataGrid x:Name="InvoiceGridOverview" Visibility="Visible" Width="250"
-                          AlternatingRowBackground="#eff" FontSize="16" Background="#eff"
+            <StackPanel Grid.Row="1" Grid.Column="1" >
+                <StackPanel Orientation="Horizontal" Margin="5,5,0,0" >
+                <ComboBox x:Name="MonthComboBox" Width="100" HorizontalContentAlignment="Center" 
+                          Margin="30,0,20,5" >
+                    <ComboBoxItem Content="Mei" />
+                    <ComboBoxItem Content="Juni" />
+                    <ComboBoxItem Content="Juli" />
+                    <ComboBoxItem Content="December" />
+                </ComboBox>
+                    <ComboBox x:Name="YearComboBox" Width="100" HorizontalContentAlignment="Center" 
+                              Margin="0,0,0,5" >
+                        <ComboBoxItem Content="2022" />
+                        <ComboBoxItem Content="2023" />
+                        <ComboBoxItem Content="2024" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="0,5,0,10" >
+                    <Button x:Name="FilterButton" Width="100" Height="27" Content="Filteren" />
+                </StackPanel>
+                <Grid Height="150" >
+                    <DataGrid x:Name="InvoiceGridOverview" Visibility="Visible" Width="250"
+                          AlternatingRowBackground="#eff" FontSize="16" Background="#bfc"
                           Foreground="#03c" AutoGenerateColumns="False" IsReadOnly="True" >
-                    <DataGrid.ColumnHeaderStyle >
-                        <Style TargetType="DataGridColumnHeader" >
-                            <Setter Property="FontWeight" Value="DemiBold" />
-                        </Style>
-                    </DataGrid.ColumnHeaderStyle>
-                    <DataGrid.Columns >
-                        <DataGridTextColumn Header="Nummer" Binding="{Binding Invoice_Number}" />
-                        <DataGridTextColumn Header="Datum" Binding="{Binding Invoice_Date}" />
-                        <DataGridTextColumn Header="Bedrag" Binding="{Binding Amount}" />
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
+                        <DataGrid.ColumnHeaderStyle >
+                            <Style TargetType="DataGridColumnHeader" >
+                                <Setter Property="FontWeight" Value="DemiBold" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="Nummer" Binding="{Binding Invoice_Number}" />
+                            <DataGridTextColumn Header="Datum" Binding="{Binding Invoice_Date}" />
+                            <DataGridTextColumn Header="Bedrag" Binding="{Binding Amount}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,15,0,5" >
+                    <Label Content="Aantal rekeningen" FontSize="12" Margin="0,0,0,0" />
+                    <Label Content="Totaalbedrag" FontSize="12" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,5,0,5" >
+                    <TextBlock x:Name="NumberOfInvoicesTextBlock" Height="20" Text="10" 
+                               FontSize="16" Margin="20,0,50,0" />
+                    <TextBlock Name="EuroSign" Text="€" VerticalAlignment="Center" Margin="20,0,5,0" />
+                    <TextBlock x:Name="TotalAmountTextBlock" Height="20" Text="3600" 
+                               FontSize="16" Margin="0,0,0,0" />
+                </StackPanel>
+            </StackPanel>
 
             <!--*Bottom row buttons-->
             <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" >
