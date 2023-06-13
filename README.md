@@ -6,9 +6,9 @@ An appointment app for a therapist who is working with pen and paper atm so any 
 -----------
 TL;DR
 
-v0.1: Consult ticker, simplify invoicing
-v1.0: Google Calendar API connection
-v2.0: Web version for clients
+- v0.1: Consult ticker, simplify invoicing
+- v1.0: Google Calendar API connection
+- v2.0: Web version for clients
 ------------
 
 The app should allow to keep a record of all the consults that were had in a month and with which client.
