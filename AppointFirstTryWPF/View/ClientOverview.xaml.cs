@@ -1,85 +1,77 @@
-﻿using System;
+﻿using AppointFirstTryWPF.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Newtonsoft.Json;
-using AppointFirstTryWPF.Model;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
 
 namespace AppointFirstTryWPF.View
 {
     /// <summary>
-    /// Interaction logic for ClientOverview.xaml
+    /// Interaction logic for ManualDataGrid.xaml
     /// </summary>
     public partial class ClientOverview : Window
     {
-        private const string CLIENTDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Cliënten.json";
-        readonly string filePath = CLIENTDATABASE;
         ObservableCollection<Client> clients;
 
-        public ClientOverview(Window parentwindow)
+        public ClientOverview()
         {
-            Owner = parentwindow;
             InitializeComponent();
+            SearchBox.Focus();
             clients = new();
             ClientGridOverview.ItemsSource = clients;
             LoadClients();
         }
 
-        #region Click Methods
+        #region Click methods
         private void Load_Click(object sender, RoutedEventArgs e)
         {
             LoadClients();
         }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            var json = JsonConvert.SerializeObject(clients.ToList(),Formatting.Indented);
-
-            if (File.Exists(filePath))
-                File.Delete(filePath);
-
-            File.WriteAllText(filePath, json);
+            //After changing the modalwindow constructor to take an owner window you will need to specify that owner in the initialization. so that's why we added (this).
+            AddClients addClients = new AddClients(this);
+            Opacity = 0.6;
+            addClients.ShowDialog();
+            Opacity = 1;
         }
-
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
         #endregion
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var searchBox = sender as TextBox;
+            if (searchBox is not null)
+            {
+                var filteredList = clients.Where(c => c.LastName.ToLower().Contains(searchBox.Text.ToLower()));
+                ClientGridOverview.ItemsSource = null;
+                ClientGridOverview.ItemsSource = filteredList;
+            }
+            else ClientGridOverview.ItemsSource = clients;
+        }
 
         private void LoadClients()
         {
-            if (!File.Exists(filePath))
-            {
-                Console.WriteLine($"{filePath} niet gevonden.");
-            }
-
-            var json = File.ReadAllText(filePath);
-            var loadedClients = JsonConvert.DeserializeObject<List<Client>>(json);
-
-            //start with blank
-            //ClientGridOverview.ItemsSource = null;
-
             clients.Clear();
+            var loadedClients = DataHandler.GetClients();
 
-            if (clients is not null)
+            if (loadedClients is not null)
             {
                 foreach (var client in loadedClients)
                 {

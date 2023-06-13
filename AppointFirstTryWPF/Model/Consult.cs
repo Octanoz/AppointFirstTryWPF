@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppointFirstTryWPF.Model
 {
-    internal class Consults
+    internal class Consult
     {
             public DateOnly Consult_Date { get; set; }
             public TimeOnly Time_Slot { get; set; }

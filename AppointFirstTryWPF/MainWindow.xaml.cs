@@ -74,8 +74,8 @@ namespace AppointFirstTryWPF
         }
         private void ListOfClients_Click(object sender, RoutedEventArgs e)
         {
-            ManualDataGrid manualDataGrid = new();
-            manualDataGrid.Show();
+            ClientOverview clientOverview = new();
+            clientOverview.Show();
         }
 
         private void Invoices_Click(object sender, RoutedEventArgs e)
@@ -89,5 +89,9 @@ namespace AppointFirstTryWPF
             Close();
         }
 
+        private void Consults_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
