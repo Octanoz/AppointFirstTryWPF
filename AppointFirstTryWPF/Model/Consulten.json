@@ -1,0 +1,170 @@
+[
+  {
+    "Consult_Date": "15/05/2023",
+    "Time_Slot": "09:30",
+    "Client_Id": 1,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "15/05/2023",
+    "Time_Slot": "14:00",
+    "Client_Id": 2,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "15/05/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 4,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "16/05/2023",
+    "Time_Slot": "09:30",
+    "Client_Id": 1,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "16/05/2023",
+    "Time_Slot": "11:15",
+    "Client_Id": 2,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "16/05/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 3,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "17/05/2023",
+    "Time_Slot": "11:15",
+    "Client_Id": 2,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "17/05/2023",
+    "Time_Slot": "14:00",
+    "Client_Id": 4,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "18/05/2023",
+    "Time_Slot": "09:30",
+    "Client_Id": 2,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "18/05/2023",
+    "Time_Slot": "14:00",
+    "Client_Id": 3,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "18/05/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 4,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "05/06/2023",
+    "Time_Slot": "09:30",
+    "Client_Id": 1,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "05/06/2023",
+    "Time_Slot": "14:00",
+    "Client_Id": 3,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "05/06/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 4,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "06/06/2023",
+    "Time_Slot": "14:00",
+    "Client_Id": 3,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "06/06/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 4,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "07/06/2023",
+    "Time_Slot": "09:30",
+    "Client_Id": 1,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "07/06/2023",
+    "Time_Slot": "11:15",
+    "Client_Id": 2,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "07/06/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 3,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "08/06/2023",
+    "Time_Slot": "09:30",
+    "Client_Id": 1,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "05/06/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 3,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "12/06/2023",
+    "Time_Slot": "09:30",
+    "Client_Id": 1,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "12/06/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 2,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "13/06/2023",
+    "Time_Slot": "09:30",
+    "Client_Id": 1,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "13/06/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 3,
+    "Status": "Afgerond"
+  },
+  {
+    "Consult_Date": "14/06/2023",
+    "Time_Slot": "09:30",
+    "Client_Id": 3,
+    "Status": "Geboekt"
+  },
+  {
+    "Consult_Date": "14/06/2023",
+    "Time_Slot": "14:00",
+    "Client_Id": 1,
+    "Status": "Geboekt"
+  },
+  {
+    "Consult_Date": "14/06/2023",
+    "Time_Slot": "16:00",
+    "Client_Id": 4,
+    "Status": "Geboekt"
+  }
+]

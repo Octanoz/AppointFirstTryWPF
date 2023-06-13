@@ -42,9 +42,9 @@ namespace AppointFirstTryWPF.View
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             //After changing the modalwindow constructor to take an owner window you will need to specify that owner in the initialization. so that's why we added (this).
-            ClientOverview clientOverview = new ClientOverview(this);
+            AddClients addClients = new AddClients(this);
             Opacity = 0.6;
-            clientOverview.ShowDialog();
+            addClients.ShowDialog();
             Opacity = 1;
         }
 

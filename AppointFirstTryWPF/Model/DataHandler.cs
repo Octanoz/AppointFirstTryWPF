@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,13 +24,17 @@ namespace AppointFirstTryWPF.Model
         #region ClientList methods
         public static List<Client> GetClients()
         {
+            var jsonSettings = new JsonSerializerSettings();
+            jsonSettings.DateFormatString = "dd/MM/yyyyThh:mm:ss.000z";
+            jsonSettings.Converters.Add(new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+
             if (!File.Exists(clientFilePath))
             {
                 Console.WriteLine($"{clientFilePath} not found.");
             }
 
             var json = File.ReadAllText(clientFilePath);
-            return JsonConvert.DeserializeObject<List<Client>>(json);
+            return JsonConvert.DeserializeObject<List<Client>>(json, jsonSettings);
         }
 
         public static void SaveClients(List<Client> clients)

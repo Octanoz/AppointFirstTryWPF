@@ -96,10 +96,10 @@ namespace AppointFirstTryWPF.View
 
         public enum Year
         {
-            Year2022 = 2022,
             Year2023 = 2023,
             Year2024 = 2024,
-            Year2025 = 2025
+            Year2025 = 2025,
+            Year2026 = 2026
         }
         /*
          * string templatePath = @"C:\Templates\MyTemplate.dotx";

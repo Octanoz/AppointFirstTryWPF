@@ -34,6 +34,12 @@ namespace AppointFirstTryWPF.View
             LoadClients();
         }
 
+        private void DataGridView_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyType == typeof(DateTime))
+                (e.Column as DataGridTextColumn).Binding.StringFormat = "d";
+        }
+
         #region Click Methods
         private void Load_Click(object sender, RoutedEventArgs e)
         {

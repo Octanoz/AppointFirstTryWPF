@@ -18,11 +18,10 @@ namespace AppointFirstTryWPF.Model
         public string Email { get; set; }
         public string Mobile { get; set; }
         public Gender Gender { get; set; }
-        public string BirthDate { get; set; }
-        public ZodiacSigns Zodiac { get; set; }
+        public DateTime BirthDate { get; set; }
         public string ZodiacSymbol
         {
-            get { return GetZodiacSymbol(Zodiac); }
+            get { return GetZodiacSign(BirthDate); }
         }
         public string StreetAddress { get; set; }
         public string PostalCode { get; set; }
@@ -37,86 +36,37 @@ namespace AppointFirstTryWPF.Model
         }
         public Archive Archive { get; set; }
 
-        /*public static string GetZodiacSign(DateTime dateOfBirth)
+        public static string GetZodiacSign(DateTime dateOfBirth)
         {
             int month = dateOfBirth.Month;
             int day = dateOfBirth.Day;
 
             if (month == 12 && day >= 22 || month == 1 && day <= 19)
-                return "Capricorn";
+                return "♑";
             if (month == 1 && day >= 20 || month == 2 && day <= 18)
-                return "Aquarius";
+                return "♒";
             if (month == 2 && day >= 19 || month == 3 && day <= 20)
-                return "Pisces";
+                return "♓";
             if (month == 3 && day >= 21 || month == 4 && day <= 19)
-                return "Aries";
+                return "♈";
             if (month == 4 && day >= 20 || month == 5 && day <= 20)
-                return "Taurus";
+                return "♉";
             if (month == 5 && day >= 21 || month == 6 && day <= 20)
-                return "Gemini";
+                return "♊";
             if (month == 6 && day >= 21 || month == 7 && day <= 22)
-                return "Cancer";
+                return "♋";
             if (month == 7 && day >= 23 || month == 8 && day <= 22)
-                return "Leo";
+                return "♌";
             if (month == 8 && day >= 23 || month == 9 && day <= 22)
-                return "Virgo";
+                return "♍";
             if (month == 9 && day >= 23 || month == 10 && day <= 22)
-                return "Libra";
+                return "♎";
             if (month == 10 && day >= 23 || month == 11 && day <= 21)
-                return "Scorpio";
+                return "♏";
             if (month == 11 && day >= 22 || month == 12 && day <= 21)
-                return "Sagittarius";
+                return "♐";
 
             throw new ArgumentException("Invalid date of birth");
-        }*/
-
-        public enum ZodiacSigns
-        {
-            Ram = 0,
-            Stier = 1,
-            Tweelingen = 2,
-            Kreeft = 3,
-            Leeuw = 4,
-            Maagd = 5,
-            Weegschaal = 6,
-            Schorpioen = 7,
-            Boogschutter = 8,
-            Steenbok = 9,
-            Waterman = 10,
-            Vissen = 11
-        }
-
-        private static string GetZodiacSymbol(ZodiacSigns sign)
-        {
-            switch (sign)
-            {
-                case ZodiacSigns.Ram:
-                    return "♈";
-                case ZodiacSigns.Stier:
-                    return "♉";
-                case ZodiacSigns.Tweelingen:
-                    return "♊";
-                case ZodiacSigns.Kreeft:
-                    return "♋";
-                case ZodiacSigns.Leeuw:
-                    return "♌";
-                case ZodiacSigns.Maagd:
-                    return "♍";
-                case ZodiacSigns.Weegschaal:
-                    return "♎";
-                case ZodiacSigns.Schorpioen:
-                    return "♏";
-                case ZodiacSigns.Boogschutter:
-                    return "♐";
-                case ZodiacSigns.Steenbok:
-                    return "♑";
-                case ZodiacSigns.Waterman:
-                    return "♒";
-                case ZodiacSigns.Vissen:
-                    return "♓";
-                default:
-                    return string.Empty;
-            }
         }
 
         public override bool Equals(object? obj)
