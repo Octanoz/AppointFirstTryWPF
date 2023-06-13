@@ -16,56 +16,69 @@ namespace AppointFirstTryWPF.Model
         private const string INVOICEDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Rekeningen.JSON";
         readonly static string invoiceFilePath = INVOICEDATABASE;
         static List<Invoice> invoices;
+
+        private const string CONSULTDATABASE = @"C:\Users\rheye\source\repos\WPF\WPF Training\AppointFirstTryWPF\AppointFirstTryWPF\Model\Consult.cs";
+        readonly static string consultFilePath = CONSULTDATABASE;
+        static List<Consult> consults;
         #endregion
 
         #region ClientList methods
         public static List<Client> GetClients()
         {
-            var jsonSettings = new JsonSerializerSettings();
-            jsonSettings.DateFormatString = "dd/MM/yyyyThh:mm:ss.000z";
-            jsonSettings.Converters.Add(new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
-
-            if (!File.Exists(clientFilePath))
-            {
-                Console.WriteLine($"{clientFilePath} not found.");
-            }
-
-            var json = File.ReadAllText(clientFilePath);
-            return JsonConvert.DeserializeObject<List<Client>>(json, jsonSettings);
+            return ReadFromJsonFile<List<Client>>(clientFilePath, GetClientJsonSettings());
         }
 
         public static void SaveClients(List<Client> clients)
         {
-            var json = JsonConvert.SerializeObject(clients, Formatting.Indented);
-
-            if (File.Exists(clientFilePath))
-                File.Delete(clientFilePath);
-
-            File.WriteAllText(clientFilePath, json);
+            SaveToJsonFile(clients, clientFilePath);
         }
         #endregion
 
         #region InvoiceList methods
         public static List<Invoice> GetInvoices()
         {
-            if (!File.Exists (invoiceFilePath))
-            {
-                Console.WriteLine($"{invoiceFilePath} not found.");
-            }
-
-            var json = File.ReadAllText(invoiceFilePath);
-            return JsonConvert.DeserializeObject<List<Invoice>>(json);
+            return ReadFromJsonFile<List<Invoice>>(invoiceFilePath);
         }
 
         public static void SaveInvoices(List<Invoice> invoices)
         {
-            var json = JsonConvert.SerializeObject(invoices, Formatting.Indented);
-
-            if (File.Exists(invoiceFilePath))
-                File.Delete(invoiceFilePath);
-
-            File.WriteAllText (invoiceFilePath, json);
+            SaveToJsonFile(invoices, invoiceFilePath);
         }
         #endregion
+
+        public static List<Consult> GetConsults()
+        {
+            return ReadFromJsonFile<List<Consult>>(consultFilePath);
+        }
+
+        private static T ReadFromJsonFile<T>(string filePath, JsonSerializerSettings settings = null)
+        {
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine($"{filePath} not found.");
+                return default(T);
+            }
+
+            var json = File.ReadAllText (filePath);
+            return JsonConvert.DeserializeObject<T>(json);
+        }
+
+        private static void SaveToJsonFile<T>(T data, string filePath)
+        {
+            var json = JsonConvert.SerializeObject(data, Formatting.Indented);
+
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+
+            File.WriteAllText(filePath, json);
+        }
+
+        private static JsonSerializerSettings GetClientJsonSettings()
+        {
+            var jsonSettings = new JsonSerializerSettings();
+            jsonSettings.DateFormatString = "dd/MM/yyyyThh:mm:ss.000z";
+            jsonSettings.Converters.Add(new IsoDateTimeConverter { DateTimeFormat = "dd/MM/yyyy" });
+            return jsonSettings;
+        }
     }
 }
